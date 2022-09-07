@@ -1,0 +1,64 @@
+body{
+    padding: 0px;
+    margin: 0px;
+    background-color: aliceblue;
+    overflow-x: hidden;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 150px 20vw 30%;
+    grid-template-rows: 1fr 15vh 10% 130px;
+    grid-column-gap: 20px;
+    grid-row-gap: 15px;
+    width: 100%;
+    height: 90vh;
+    
+    
+}
+
+.grid-cild1 {
+    grid-column: 1/2;
+    grid-row: 1;
+    background-color: red;
+}
+.grid-cild2 {
+    grid-column: 2/3;
+    grid-row: 1;
+    background-color: green;
+}
+.grid-cild3 {
+    grid-column: 3/5;
+    grid-row: 1;
+    background-color: blue;
+}
+.grid-cild4 {
+    grid-column: 1/2;
+    grid-row: 2;
+    background-color: yellow;
+}
+.grid-cild5 {
+    grid-column: 3/4;
+    grid-row: 2;
+    background-color: aqua;
+}
+.grid-cild6 {
+    grid-column: 1;
+    grid-row: 3;
+    background-color: purple;
+}
+.grid-cild7 {
+    grid-column: 3;
+    grid-row: 3;
+    background-color: black;
+}
+.grid-cild8 {
+    grid-column: 2;
+    grid-row: 4;
+    background-color: orange;
+}
+.grid-cild9 {
+    grid-column: 4;
+    grid-row: 4;
+    background-color: teal;
+}

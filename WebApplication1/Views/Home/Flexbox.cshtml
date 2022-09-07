@@ -1,0 +1,36 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Test page">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="Hampus">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Page</title>
+    <link rel="stylesheet" href="~/Content/Stylesheet/flexStyle.css">
+</head>
+<body>
+    <div class="header">
+        @{Html.RenderAction("Menu");}
+    </div>
+
+    <div class="flex-container">
+        <div class="flex-cild">1</div>
+        <div class="flex-cild">2</div>
+        <div class="flex-cild">3</div>
+        <div class="flex-cild">4</div>
+        <div class="flex-cild">5</div>
+        <div class="flex-cild">6</div>
+        <div class="flex-cild">7</div>
+        <div class="flex-cild">8</div>
+        <div class="flex-cild">9</div>
+    </div>
+
+
+</body>
+</html>

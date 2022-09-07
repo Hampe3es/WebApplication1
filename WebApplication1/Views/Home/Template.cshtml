@@ -1,0 +1,28 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Test page">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="Hampus">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template Page</title>
+    <link rel="stylesheet" href="~/Content/Stylesheet/style.css">
+</head>
+<body>
+    <div class="header">
+        @{Html.RenderAction("Menu");}
+    </div>
+
+    <h1>Hello World</h1>
+
+    <p>Text</p>
+
+    <script src="javaCode.js"></script> <!--min javaskrip fil-->
+</body>
+</html>

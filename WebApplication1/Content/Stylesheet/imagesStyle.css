@@ -1,0 +1,41 @@
+body{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: flex-start;
+    padding: 0px;
+    margin: 0px;
+    background-color: aliceblue;
+    overflow-x: hidden;
+}
+
+
+
+
+
+.imgBox1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 292px;
+    height: 172px;
+    padding: 10px;
+    padding-top: 40px;
+}
+
+.imgBox2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 292px;
+    height: 172px;
+    padding: 10px;
+    padding-top: 20px;
+}
+
+.img1 {
+    width: 100px;
+    height: 100%;
+}

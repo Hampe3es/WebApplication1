@@ -1,0 +1,38 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chart Page</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <link rel="stylesheet" href="~/Content/Stylesheet/chartStyle.css">
+</head>
+<body>
+    <div class="header">
+        @{Html.RenderAction("Menu");}
+    </div>
+
+    <div class="graf-container">
+
+        <div class="button-container">
+                <button id="red">Röd</button>
+                <button id="blue">Blå</button>
+            </div>
+
+        <div class="scroll-container">
+            <div id="chart-container">
+                <canvas id="myChart" height="300"></canvas>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="~/Content/Javascript/chartJavaScript.js"></script> <!--min javaskrip fil-->
+</body>
+</html>
