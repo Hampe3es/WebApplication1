@@ -51,13 +51,20 @@ namespace WebApplication1.Controllers
         {
             DataSet ds = dblayer.Show_data();
             List<TestModel> listreg = new List<TestModel>();
+
             foreach (DataRow dr in ds.Tables[0].Rows)
             {
+                //listreg.Add(new TestModel
+                //{
+                //    Time = Convert.ToInt32(dr["Time"]),
+                //    Red = Convert.ToInt32(dr["Red"]),
+                //    Blue = Convert.ToInt32(dr["Blue"]),
+                //});
                 listreg.Add(new TestModel
                 {
-                    Time = Convert.ToInt32(dr["Time"]),
-                    Red = Convert.ToInt32(dr["Red"]),
-                    Blue = Convert.ToInt32(dr["Blue"]),
+                    PersonID = Convert.ToInt32(dr["PersonID"]),
+                    Name = Convert.ToInt32(dr["Name"]),
+                    LastName = Convert.ToInt32(dr["LastName"]),
                 });
             }
             return Json(listreg, JsonRequestBehavior.AllowGet);

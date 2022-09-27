@@ -17,10 +17,19 @@
     height: 80px;
 }
 
+#btFukt {
+    background: #0abf4c;
+}
+
+#btTemp {
+    background: white;
+}
+
 .scroll-container {
     width: 800px;
     height: 320px;
     overflow-x: scroll;
+    overflow-y: hidden;
 }
 
 #myChart {

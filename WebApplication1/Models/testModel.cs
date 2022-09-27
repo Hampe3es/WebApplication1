@@ -10,5 +10,10 @@ namespace WebApplication1.Models
         public int Time { get; set; }
         public int Red { get; set; }
         public int Blue { get; set; }
+
+
+        public int PersonID { get; set; }
+        public int Name { get; set; }
+        public int LastName { get; set; }
     }
 }

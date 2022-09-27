@@ -1,9 +1,4 @@
-﻿
-@{
-    Layout = null;
-}
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -21,9 +16,12 @@
     <div class="graf-container">
 
         <div class="button-container">
-                <button id="red">Röd</button>
-                <button id="blue">Blå</button>
-            </div>
+            <button id="btFukt" onclick="updatchartFukt(this)" value="0">Fukt</button>
+            <button id="btTemp" onclick="updatchartTemp(this)" value="1">Temp</button>
+            <input type="datetime-local" id="startDate" min="2022-09-01T00:00" />
+            <input type="datetime-local" id="endDate" min="2022-09-01T00:00" />
+            <button onclick="uppdate()">pres</button>
+        </div>
 
         <div class="scroll-container">
             <div id="chart-container">
@@ -32,7 +30,151 @@
 
         </div>
     </div>
+    @*<script src="~/Content/Javascript/chartJavaScript.js"></script>*@
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var xValues = [];
+        var yValuesFukt = [];
+        var yValuesTemp = [];
+        var PersonIDValues = [];
+        var NameValues = [];
+        var LastNameValues = [];
+        
 
-    <script src="~/Content/Javascript/chartJavaScript.js"></script> <!--min javaskrip fil-->
+        $.get("get_data", {}, function (data) {
+
+            //for (let i = 0; i < data.length; i++) {       //get time and add to array
+            //    var addToArray = data[i]['Time'];
+            //    xValues.push(addToArray);
+            //}
+            ///*console.log(xValues);*/
+
+
+            //for (let i = 0; i < data.length; i++) {       //get Blue and add to array
+            //    var addToArray = data[i]['Blue'];
+            //    yValuesFukt.push(addToArray);
+            //}
+            ///*console.log(yValuesFukt);*/
+
+
+            //for (let i = 0; i < data.length; i++) {       //get Red and add to array
+            //    var addToArray = data[i]['Red'];
+            //    yValuesTemp.push(addToArray);
+            //}
+            ///*console.log(yValuesTemp);*/
+
+
+            //--------------------------------------------------------------------------------------
+
+            for (let i = 0; i < data.length; i++) {       //get PersonID and add to array
+                var addToArray = data[i]['PersonID'];
+                PersonIDValues.push(addToArray);
+            }
+            console.log(PersonIDValues);
+
+
+            for (let i = 0; i < data.length; i++) {       //get Name and add to array
+                var addToArray = data[i]['Name'];
+                NameValues.push(addToArray);
+            }
+            console.log(NameValues);
+
+
+            for (let i = 0; i < data.length; i++) {       //get LastName and add to array
+                var addToArray = data[i]['LastName'];
+                LastNameValues.push(addToArray);
+            }
+            console.log(LastNameValues);
+
+
+            addingToArrayDone()
+        })      //få datra ifrån json och lägg in det i arrays
+
+        const data = {
+            labels: xValues,
+            datasets: [{                         //Införandet av data
+                label: 'fukt',
+                data: yValuesFukt,
+                borderColor: "blue",
+                fill: false,
+                hidden: true
+            }, {
+                label: 'temp',
+                data: yValuesTemp,
+                borderColor: "red",
+                fill: false,
+                hidden: true
+            }]
+        };    //graf datan
+
+
+        const config = {
+            type: 'line',
+            data,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 40,
+                    }
+                },
+                animation: false,
+                plugins: {
+                    legend: { display: false },
+                }
+            }
+        };    //garf configration
+
+        // render init block
+        const myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+        );
+
+
+        function addingToArrayDone() {                                  //gör så att värden vissas när sidan startar
+            myChart.config.data.datasets[0].hidden = false;
+            myChart.update();
+        }   //när datan har lags till i alla arrays uppdatera grafen
+
+
+        function updatchartFukt(dataset) {                                       //visar värden
+            const isDataShown = myChart.isDatasetVisible(dataset.value);
+            if (isDataShown === false) {
+                myChart.show(dataset.value);
+                document.getElementById("btFukt").style.background = '#0abf4c';
+            }
+            if (isDataShown === true) {
+                myChart.hide(dataset.value);
+                document.getElementById("btFukt").style.background = '#ffffff';
+            }
+        }   //vissar och gömmer fukt
+
+        function updatchartTemp(dataset) {
+            const isDataShown = myChart.isDatasetVisible(dataset.value);
+            if (isDataShown === false) {
+                myChart.show(dataset.value);
+                document.getElementById("btTemp").style.background = '#0abf4c';
+            }
+            if (isDataShown === true) {
+                myChart.hide(dataset.value);
+                document.getElementById("btTemp").style.background = '#ffffff';
+            }
+        }   //vissar och gömmer temp
+
+        
+
+        function uppdate() {                                     //uppdatera graf
+            var update = myChart.config.options.scales.y.max;
+            if (update != 60) {
+                myChart.config.options.scales.y.max = 60;
+            }
+            else {
+                myChart.config.options.scales.y.max = 40;
+            }
+            myChart.update();
+        }    //test funktion för att uppdatera graf
+
+    </script>
 </body>
 </html>
