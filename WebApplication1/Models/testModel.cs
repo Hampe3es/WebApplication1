@@ -7,13 +7,17 @@ namespace WebApplication1.Models
 {
     public class TestModel
     {
-        public int Time { get; set; }
-        public int Red { get; set; }
-        public int Blue { get; set; }
-
-
         public int PersonID { get; set; }
-        public int Name { get; set; }
-        public int LastName { get; set; }
+        public string Name { get; set; }
+        public string LastName { get; set; }
+
+
+
+        public int ID { get; set; }
+        public string DeviceID { get; set; }
+        public int Temperature { get; set; }
+        public int Humidity { get; set; }
+        public int RSSI { get; set; }
+        public string Measure_Time { get; set; }
     }
 }

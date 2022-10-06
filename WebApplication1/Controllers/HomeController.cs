@@ -56,15 +56,19 @@ namespace WebApplication1.Controllers
             {
                 //listreg.Add(new TestModel
                 //{
-                //    Time = Convert.ToInt32(dr["Time"]),
-                //    Red = Convert.ToInt32(dr["Red"]),
-                //    Blue = Convert.ToInt32(dr["Blue"]),
+                //    PersonID = Convert.ToInt32(dr["PersonID"]),
+                //    Name = dr["Name"].ToString(),
+                //    LastName = dr["LastName"].ToString(),
                 //});
                 listreg.Add(new TestModel
                 {
-                    PersonID = Convert.ToInt32(dr["PersonID"]),
-                    Name = Convert.ToInt32(dr["Name"]),
-                    LastName = Convert.ToInt32(dr["LastName"]),
+                    ID = Convert.ToInt32(dr["ID"]),
+                    DeviceID = dr["DeviceID"].ToString(),
+                    Temperature = Convert.ToInt32(dr["Temperature"]),
+                    Humidity = Convert.ToInt32(dr["Humidity"]),
+                    RSSI = Convert.ToInt32(dr["RSSI"]),
+                    //Measure_Time = Convert.ToDateTime(dr["Measure_Time"]),
+                    Measure_Time = dr["Measure_Time"].ToString(),
                 });
             }
             return Json(listreg, JsonRequestBehavior.AllowGet);

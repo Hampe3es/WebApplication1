@@ -25,6 +25,19 @@
     background: white;
 }
 
+#setTime {
+    width: 300px;
+    border: solid 2px black;
+}
+
+#startDate {
+    width: 200px;
+}
+
+#endDate {
+    width: 200px;
+}
+
 .scroll-container {
     width: 800px;
     height: 320px;
